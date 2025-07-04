@@ -1,220 +1,237 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap");
+/* Open Sans font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
-:root {
-    /* darctic */
-    --darctic-background: #2b2c2f;
-    --darctic-center-box: #282b32;
-    --darctic-text-color: #f0f8ffcc;
-    --darctic-timer-color: #f0f8ff;
-    --darctic-button-color: #c7d0d8;
-    --darctic-time-bar: #67737d;
-
-    /* princess */
-    --princess-background: #cedcdd;
-    --princess-center-box: #ddd3d2;
-    --princess-text-color: #5d6b6b;
-    --princess-timer-color: #5d6b6b;
-    --princess-button-color: #5d6b6b;
-    --princess-time-bar: #bad4d4;
-
-    /* mecha */
-    --mecha-background: #eef4fa;
-    --mecha-center-box: #dfe5ed;
-    --mecha-text-color: #c99b11;
-    --mecha-timer-color: #fb2f38;
-    --mecha-button-color: #2c52b3;
-    --mecha-time-bar: #424242;
-
-    /* swede */
-    --swede-background: #006AA7;
-    --swede-center-box: #0077bb;
-    --swede-text-color: #fecc02;
-    --swede-timer-color: #fecc02;
-    --swede-button-color: #fecc02;
-    --swede-time-bar: #fecc02;
+/* =========================
+   Theme Variables
+   ========================= */
+.darctic {
+    --background:      #2b2c2f;
+    --center-box:      #282b32;
+    --text:            #f0f8ff;
+    --timer:           #f0f8ff;
+    --buttons:         #96a2ac;
+    --buttons-hover:   #b0c4d4;
+    --time-bar:        #67737d;
 }
 
-#documentBody {
-    background-color: var(--darctic-background);
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+.princess {
+    --background:      #cedcdd;
+    --center-box:      #ddd3d2;
+    --text:            #5d6b6b;
+    --timer:           #f5c433;
+    --buttons:         #313a3a;
+    --buttons-hover:   #bad4d4;
+    --time-bar:        #bad4d4;
+}
+
+.mecha {
+    --background:      #eef4fa;
+    --center-box:      #dfe5ed;
+    --text:            #f5c433;
+    --timer:           #ec1919;
+    --buttons:         #2c52b3;
+    --buttons-hover:   #4a6ea9;
+    --time-bar:        #ec1919;
+}
+
+.swede {
+    --background:      #006AA7;
+    --center-box:      #0077bb;
+    --text:            #fecc02;
+    --timer:           #f2d600;
+    --buttons:         #fecc02;
+    --buttons-hover:   #f2d600;
+    --time-bar:        #fecc02;
+}
+
+.sailmoon {
+    --background:      #f0f8ff;
+    --center-box:      #fff5f7;
+    --text:            #3c3ed4;
+    --timer:           #fac338;
+    --buttons:         #c84b64;
+    --buttons-hover:   #ff69b4;
+    --time-bar:        #eed29c;
+}
+
+/* =========================
+   Layout & Base Styles
+   ========================= */
+body {
+    /* layout */
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    text-align: center;
+    /* box styling */
+    background-color: var(--background);
+    font-family: "Open Sans", sans-serif;
+}
+
+* {
     transition: 80ms;
 }
 
-/* top outside box text */
-#themeCondition {
+#aboutText {
+    /* positioning */
     position: fixed;
-    top: 60%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: small;
-    color: var(--darctic-text-color);
-    text-align: center;
-    font-family: "Roboto Mono";
-    opacity: 0%;
+    top: 200px;
+    /* layout */
+    display: flex;
+    flex-direction: column;
+    width: 450px;
+    gap: 490px;
+    /* text styling */
+    color: var(--text);
 }
 
-@keyframes themeConditionShow {
-    0% {
-        opacity: 10%;
-    }
-    5% {
-        opacity: 80%;
-    }
-    96% {
-        opacity: 80%;
-    }
-    100% {
-        opacity: 0%;
-    }
-}
-
-#FOCUSdrink {
-    position: fixed;
-    top: 22%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 400px;
-    color: var(--darctic-text-color);
-    text-align: center;
-    transition: opacity 180ms;
-    transition: 80ms;
-}
-
-/* bottom outside box text to credit where I got inspo */
-/* app's heavily inspired by the Flow app on MacOS made by Yugen */
-#creditStatement {
+#aboutButton {
+    /* positioning */
     position: fixed;
     top: 70%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 500px;
-    height: auto;
-    color: var(--darctic-text-color);
-    text-align: center;
-    transition: opacity 180ms;
-    transition: 80ms;
-}
-
-.outsideDisappear {
-    opacity: 0%;
-}
-
-#showAboutButton {
-    cursor: pointer;
-    width: 70px;
-    height: 30px;
-    position: fixed;
-    top: 80%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    /* text styling */
     font-weight: bold;
+    color: var(--text);
+    /* box styling */
     border: none;
     background-color: var(--background);
-    color: var(--darctic-button-color);
-    transition: 80ms;
     opacity: 50%;
+    cursor: pointer;
 }
 
-#showAboutButton:hover {
-    opacity: 90%;
+#aboutButton:hover {
+    opacity: 100%;
 }
 
 /* the box in the center of the screen */
 #centerContent {
+    /* layout */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* box styling */
     width: 350px;
     height: 210px;
     padding: 20px;
     border-radius: 15px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.67);
     border: 1px solid #131313;
-    text-align: center;
+    background-color: var(--center-box);
+    box-shadow: 0 8px 32px #000000ab;
+    /* positioning */
     position: fixed;
-    top: 45%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-    background-color: var(--darctic-center-box);
+    top: 34%;
 }
 
-/* the FOCUSdrink header up top, on the center box */
-#mainHeader {
-    position: fixed;
-    top: 20%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: var(--darctic-text-color);
-    font-weight: lighter;
-    width: 300px;
+/* the FOCUSdrink in the center box */
+h1 {
+    /* text styling */
     font-size: 20px;
+    font-weight: lighter;
     opacity: 80%;
+    color: var(--text);
+    /* positioning */
+    position: relative;
+    top: 10px;
+}
+
+/* the class that contains the timer and the buttons */
+.timerRow {
+    /* layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    gap: 14px;
+    /* optical centering */
+    position: relative;
+    right: 4px;
+}
+
+/* the reset button to the left side of the timer that resets everything */
+#resetButton {
+    /* box styling */
+    background: transparent;
+    border: none;
+    /* text styling */
+    font-size: 27px;
+    color: var(--buttons);
+    /* positioning */
+    position: relative;
+    top: 1px;
+    /* interaction */
+    cursor: pointer;
+    opacity: 50%;
+    transition: opacity 200ms;
+}
+
+#resetButton:hover {
+    opacity: 100%;
 }
 
 /* the timer below the FOCUSdrink header */
-#focusTime {
-    width: 300px;
+#timer {
+    /* text styling */
     font-size: 65px;
-    position: fixed;
-    top: 44%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 2;
-    font-weight: light;
-    color: var(--darctic-timer-color);
+    color: var(--timer);
+    font-family: "Roboto Mono", monospace;
+    /* this makes it look more opatically centered */
+}
+
+/* the skip ahead button to the right side of the timer that skips ahead */
+#skipAheadButton {
+    /* box styling */
+    background-color: transparent;
+    border: none;
+    /* text styling */
+    font-size: 27px;
+    color: var(--buttons);
+    /* positioning */
+    position: relative;
+    top: 1px;
+    /* interaction */
+    cursor: pointer;
+    opacity: 50%;
+    transition: opacity 200ms;
+}
+
+#skipAheadButton:hover {
+    opacity: 100%;
 }
 
 /* the dynamic time bar below the timer */
 #timeBar {
+    /* box styling */
     border: none;
     border-radius: 4px;
     height: 5px;
     width: 250px;
-    position: fixed;
-    top: 61%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 2;
-    background-color: var(--darctic-time-bar);
+    background-color: var(--time-bar);
+    /* transition */
     transition: background-color 150ms;
 }
 
 /* here are the dynamic time bar actions. Anything labeled #timeBar */
-#timeBar.running {
+#timeBar.drinking {
     background-color: #75d80b;
-    box-shadow: 0 0 5px #76da0b94;
+    box-shadow: 0 0 5px #73d808;
 }
 
 #timeBar.filling {
     background-color: #fab222;
-    box-shadow: 0 0 5px #fab22294;
-}
-
-#timeBar.reset {
-    width: 250px;
-    opacity: 100%;
-}
-
-#timeBar.runDone {
-    width: 0px;
-}
-
-#timeBar.fillDone {
-    width: 250px;
-    box-shadow: none;
+    box-shadow: 0 0 5px #d3910c;
 }
 
 #timeBar.idle {
-    width: 250px;
+    background-color: var(--time-bar);
+    box-shadow: none;
 }
 
-@keyframes timeBarReset {
+@keyframes timeBarDrink {
     0% {
-        height: 5px;
         width: 250px;
     }
     100% {
-        height: 5px;
-        width: 250px;
+        width: 0px;
     }
 }
 
@@ -227,432 +244,112 @@
     }
 }
 
-@keyframes timeBarDrink {
-    0% {
-        width: 250px;
-    }
-    100% {
-        width: 0px;
-    }
-}
-
 /* this is the button below the time bar for running the timer */
 #startStop {
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    /* box styling */
     height: 20px;
     width: 100px;
     border: none;
-    position: fixed;
-    top: 72%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 2;
+    border-radius: 5px;
+    background-color: var(--buttons);
+    color: var(--text);
+    /* text styling */
     font-weight: light;
-    background-color: var(--darctic-button-color);
-    color: var(--darctic-background);
+    /* positioning */
+    position: relative;
+    top: 10px;
+    /* interaction */
+    cursor: pointer;
     transition: 80ms;
-    opacity: 60%;
 }
 
 /* hover dynamic */
 #startStop:hover {
-    opacity: 90%
+    background-color: var(--buttons-hover);
 }
 
-/* the reset button to the left side of the timer that resets everything */
-#resetButton {
-    background-color: var(--darctic-center-box);
-    border: none;
-    cursor: pointer;
-    position: fixed;
-    top: 46%;
-    left: 20%;
-    transform: translate(-50%, -50%);
-    z-index: 3;
-    opacity: 50%;
-    transition: opacity 200ms;
-    font-size: 27px;
-    color: var(--darctic-button-color);
-    font-weight: lighter;
-}
-
-#resetButton:hover {
-    opacity: 90%;
-}
-
-/* the skip ahead button to the right side of the timer that skips ahead */
-#skipAheadButton {
-    background-color: var(--darctic-background);
-    border: none;
-    cursor: pointer;
-    position: fixed;
-    top: 46%;
-    left: 78%;
-    transform: translate(-50%, -50%);
-    z-index: 3;
-    opacity: 50%;
-    transition: opacity 200ms;
-    font-size: 27px;
-    color: var(--darctic-button-color);
-    font-weight: lighter;
-}
-
-#skipAheadButton:hover {
-    opacity: 90%;
-}
-
-#skipAheadButton.inFunctional {
-    cursor: auto;
-    opacity: 0%;
-}
-
-#cycleBreakReminder {
-    color: var(--darctic-text-color);
-    opacity: 0%;
-    width: 300px;
-    position: fixed;
-    top: 87%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-weight: lighter;
-    transition: opacity 250ms;
-}
-
-#cycleBreakStatus {
-    color: var(--darctic-text-color);
-    opacity: 0%;
-    width: 300px;
-    position: fixed;
-    top: 87%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-weight: lighter;
-    transition: opacity 250ms;
-}
-
-#cycleBreakReminder.appearReminder {
-    opacity: 50%;
-}
-
-#cycleBreakStatus.appearStatus {
-    opacity: 50%;
-}
-
-
-/* these are the themes */
-#themes {
+/* =========================
+   Theme Buttons
+   ========================= */
+.themes {
+    /* layout */
     text-align: center;
-    width: 600px;
-    height: 50px;
+    /* positioning */
     position: fixed;
-    top: 29.5%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 29%;
+}
+
+.themes button {
+    /* interaction */
+    cursor: pointer;
+    /* box styling */
+    width: 70px;
+    height: 25px;
+    border-radius: 7px;
+    transition: 80ms;
 }
 
 /* DARCTIC */
 #darctic {
-    cursor: pointer;
-    border: 1px solid var(--darctic-time-bar);
-    border-radius: 7px;
-    background-color: var(--darctic-center-box);
-    text-align: center;
-    color: var(--darctic-text-color);
-    font-family: "Roboto Mono";
-    width: 70px;
-    height: 25px;
+    background-color: #2b2c2f;
+    color: #f0f8ff;
+    border: 1px solid #f0f8ff;
 }
 
 #darctic:hover {
-    color: var(--darctic-center-box);
-    background-color: var(--darctic-text-color);
-    border: 1px solid var(--darctic-center-box);
-}
-
-/* DARCTIC color instructions */
-#documentBody.darcticTheme {
-    background-color: var(--darctic-background);
-}
-
-#FOCUSdrink.darcticTheme {
-    color: var(--darctic-text-color);
-}
-
-#creditStatement.darcticTheme {
-    color: var(--darctic-text-color);
-}
-
-#showAboutButton.darcticTheme {
-    background-color: var(--darctic-background);
-    color: var(--darctic-button-color);
-}
-
-#centerContent.darcticTheme {
-    background-color: var(--darctic-center-box);
-}
-
-#mainHeader.darcticTheme {
-    color: var(--darctic-text-color);
-}
-
-#focusTime.darcticTheme {
-    color: var(--darctic-timer-color);
-}
-
-#timeBar.darcticTheme {
-    background-color: var(--darctic-time-bar);
-}
-
-#startStop.darcticTheme {
-    background-color: var(--darctic-button-color);
-    color: var(--darctic-background);
-}
-
-#resetButton.darcticTheme {
-    background-color: var(--darctic-center-box);
-    color: var(--darctic-button-color);
-}
-
-#skipAheadButton.darcticTheme {
-    background-color: var(--darctic-center-box);
-    color: var(--darctic-button-color);
-}
-
-#cycleBreakReminder.darcticTheme {
-    color: var(--darctic-text-color);
-}
-
-#cycleBreakStatus.darcticTheme {
-    color: var(--darctic-text-color);
+    background-color: #f0f8ff;
+    color: #2b2c2f;
+    border: 1px solid #2b2c2f;
 }
 
 /* PRINCESS */
 #princess {
-    cursor: pointer;
-    border: 1px solid var(--princess-about-button);
-    border-radius: 7px;
-    background-color: var(--princess-center-box);
-    text-align: center;
-    color: var(--princess-text-color);
-    font-family: "Roboto Mono";
-    width: 70px;
-    height: 25px;
+    background-color: #ddd3d2;
+    color: #5d6b6b;
+    border: 1px solid #5d6b6b;
 }
 
 #princess:hover {
-    cursor: pointer;
-    color: var(--princess-center-box);
-    background-color: var(--princess-text-color);
-    border: 1px solid var(--princess-center-box);
-}
-
-/* PRINCESS color instructions */
-#documentBody.princessTheme {
-    background-color: var(--princess-background);
-}
-
-#FOCUSdrink.princessTheme {
-    color: var(--princess-text-color);
-}
-
-#creditStatement.princessTheme {
-    color: var(--princess-text-color);
-}
-
-#showAboutButton.princessTheme {
-    background-color: var(--princess-background);
-    color: var(--princess-button-color);
-}
-
-#centerContent.princessTheme {
-    background-color: var(--princess-center-box);
-}
-
-#mainHeader.princessTheme {
-    color: var(--princess-text-color);
-}
-
-#focusTime.princessTheme {
-    color: var(--princess-timer-color);
-}
-
-#timeBar.princessTheme {
-    background-color: var(--princess-time-bar);
-}
-
-#startStop.princessTheme {
-    background-color: var(--princess-button-color);
-    color: var(--princess-background);
-}
-
-#resetButton.princessTheme {
-    background-color: var(--princess-center-box);
-    color: var(--princess-button-color);
-}
-
-#skipAheadButton.princessTheme {
-    background-color: var(--princess-center-box);
-    color: var(--princess-button-color);
-}
-
-#cycleBreakReminder.princessTheme {
-    color: var(--princess-text-color);
-}
-
-#cycleBreakStatus.princessTheme {
-    color: var(--princess-text-color);
+    background-color: #5d6b6b;
+    color: #ddd3d2;
+    border: 1px solid #ddd3d2;
 }
 
 /* MAHOU SHOUJOU */
 #mecha {
-    cursor: pointer;
-    border: 1px solid var(--mecha-time-bar);
-    border-radius: 7px;
-    background-color: var(--mecha-center-box);
-    text-align: center;
-    color: var(--mecha-text-color);
-    font-family: "Roboto Mono";
-    width: 60px;
-    height: 25px;
+    background-color: #dfe5ed;
+    color: #ec1919;
+    border: 1px solid #f5c433;
 }
 
 #mecha:hover {
-    color: var(--mecha-center-box);
-    background-color: var(--mecha-timer-color);
-    border: 1px solid var(--mecha-center-box);
-}
-
-/* MAHOU SHOUJOU color instructions */
-#documentBody.mechaTheme {
-    background-color: var(--mecha-background);
-}
-
-#FOCUSdrink.mechaTheme {
-    color: var(--mecha-text-color);
-}
-
-#creditStatement.mechaTheme {
-    color: var(--mecha-text-color);
-}
-
-#showAboutButton.mechaTheme {
-    background-color: var(--mecha-background);
-    color: var(--mecha-button-color);
-}
-
-#centerContent.mechaTheme {
-    background-color: var(--mecha-center-box);
-}
-
-#mainHeader.mechaTheme {
-    color: var(--mecha-text-color);
-}
-
-#focusTime.mechaTheme {
-    color: var(--mecha-timer-color);
-}
-
-#timeBar.mechaTheme {
-    background-color: var(--mecha-time-bar);
-}
-
-#startStop.mechaTheme {
-    background-color: var(--mecha-button-color);
-    color: var(--mecha-background);
-}
-
-#resetButton.mechaTheme {
-    background-color: var(--mecha-center-box);
-    color: var(--mecha-button-color);
-}
-
-#skipAheadButton.mechaTheme {
-    background-color: var(--mecha-center-box);
-    color: var(--mecha-button-color);
-}
-
-#cycleBreakReminder.mechaTheme {
-    color: var(--mecha-text-color);
-}
-
-#cycleBreakStatus.mechaTheme {
-    color: var(--mecha-text-color);
+    background-color: #f5c433;
+    color: #dfe5ed;
+    border: 1px solid #dfe5ed;
 }
 
 /* SWEDE */
 #swede {
-    cursor: pointer;
-    border: 1px solid var(--swede-time-bar);
-    border-radius: 7px;
-    background-color: var(--swede-center-box);
-    text-align: center;
-    color: var(--swede-text-color);
-    font-family: "Roboto Mono";
-    width: 60px;
-    height: 25px;
+    background-color: #0077bb;
+    color: #fecc02;
+    border: 1px solid #fecc02;
 }
 
 #swede:hover {
-    color: var(--swede-center-box);
-    background-color: var(--swede-text-color);
-    border: 1px solid var(--swede-center-box);
+    background-color: #fecc02;
+    color: #0077bb;
+    border: 1px solid #0077bb;
 }
 
-/* SWEDE color instructions */
-#documentBody.swedeTheme {
-    background-color: var(--swede-background);
+/* SAILMOON */
+#sailmoon {
+    background-color: #fff5f7;
+    color: #3c3ed4;
+    border: 1px solid #3c3ed4;
 }
 
-#FOCUSdrink.swedeTheme {
-    color: var(--swede-text-color);
-}
-
-#creditStatement.swedeTheme {
-    color: var(--swede-text-color);
-}
-
-#showAboutButton.swedeTheme {
-    background-color: var(--swede-background);
-    color: var(--swede-button-color);
-}
-
-#centerContent.swedeTheme {
-    background-color: var(--swede-center-box);
-}
-
-#mainHeader.swedeTheme {
-    color: var(--swede-text-color);
-}
-
-#focusTime.swedeTheme {
-    color: var(--swede-timer-color);
-}
-
-#timeBar.swedeTheme {
-    background-color: var(--swede-time-bar);
-}
-
-#startStop.swedeTheme {
-    background-color: var(--swede-button-color);
-    color: var(--swede-background);
-}
-
-#resetButton.swedeTheme {
-    background-color: var(--swede-center-box);
-    color: var(--swede-button-color);
-}
-
-#skipAheadButton.swedeTheme {
-    background-color: var(--swede-center-box);
-    color: var(--swede-button-color);
-}
-
-#cycleBreakReminder.swedeTheme {
-    color: var(--swede-text-color);
-}
-
-#cycleBreakStatus.swedeTheme {
-    color: var(--swede-text-color);
+#sailmoon:hover {
+    background-color: #3c3ed4;
+    color: #fff5f7;
+    border: 1px solid #fff5f7;
 }

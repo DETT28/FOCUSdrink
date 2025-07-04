@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible"content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FOCUSdrink</title>
     <link rel="stylesheet" href="style.css">
@@ -10,41 +9,31 @@
     <script src="script.js" defer></script>
 </head>
 
-<body id="documentBody">
-    <div id="FOCUSdrink" class="outside">This is FOCUSdrink, a minimalistic
-        pomodoro focus timer designed to help keep workflow manageable by
-        slicing it up into manageable chunks with breaks in between.
-    </div>
-
-    <div id="creditStatement" class="outside">This app is very heavily inspired
-        by the Flow widget on MacOS, "lovingly crafted by Yugen, a tiny but mighty
-        indie developer based in Frankfurt, Germany."
+<body class ="darctic" onload="initialize()">
+    <div id="aboutText">
+        <p id="aboutTop">FOCUSdrink is a minimalistic pomodoro focus timer designed to help keep workflow manageable by slicing it up into manageable chunks with breaks in between.</p>
+        <p id="aboutBottom">It is heavily inspired by the Flow widget on MacOS, "lovingly crafted by Yugen, a tiny but mighty indie developer based in Frankfurt, Germany."</p>
     </div>
 
     <div id="centerContent" class="">
-        <h1 id="mainHeader">F O C U S d r i n k</h1>
-        <div id="focusTime" class="dynamic">25:00</div>
-        <div id="focusCount" class="dynamic"></div>
+        <h1>F O C U S d r i n k</h1>
+        <div class="timerRow">
+            <button id="resetButton" onclick="resetTimer()"><i class="fa-solid fa-rotate-left"></i></button>
+            <div id="timer" class="dynamic">00:00</div>
+            <button id="skipAheadButton" onclick="skipAhead()"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
         <div id="timeBar" class="dynamic"></div>
         <button id="startStop" onclick="startStop()">F O C U S</button>
-        <button id="resetButton" onclick="resetTimer()"><i class="fa-solid fa-rotate-left"></i></button>
-        <button id="skipAheadButton" onclick="skipAhead()"><i class="fa-solid fa-chevron-right"></i></button>
-        <div id="cycleBreakReminder">
-            You should take a longer break.
-        </div>
-        <div id="cycleBreakStatus">
-            Taking a longer break.
-        </div>
     </div>
     
-    <button id="showAboutButton" onclick="showCreditText()">ABOUT</button>
+    <button id="aboutButton" onclick="showAbout()">ABOUT</button>
 
-    <div id="themes">
-        <button id="darctic" onclick="activateDarctic()">darctic</button>
-        <button id="princess" onclick="activatePrincess()">princess</button>
-        <button id="mecha" onclick="activateMecha()">mecha</button>
-        <button id="swede" onclick="activateSwede()">swede</button>
+    <div class="themes">
+        <button id="darctic" onclick="darcticTheme()">darctic</button>
+        <button id="princess" onclick="princessTheme()">princess</button>
+        <button id="mecha" onclick="mechaTheme()">mecha</button>
+        <button id="swede" onclick="swedeTheme()">swede</button>
+        <button id="sailmoon" onclick="sailmoonTheme()">sailmoon</button>
     </div>
 </body>
 </html>
-
