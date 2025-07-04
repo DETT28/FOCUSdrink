@@ -14,7 +14,7 @@ let working = true;
 let aboutVisible = true;
 let paused = null;
 let running = null;
-let workCycle = 4;
+let workCycle = 0;
 
 function showAbout() {
     aboutVisible = !aboutVisible;
